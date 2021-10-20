@@ -1,4 +1,5 @@
 # Author: karthi@your.domain.com
+@regression 
 Feature: Add Customer flow validation
 
 Background:
@@ -36,6 +37,7 @@ Background:
     And user click on submit button
     Then user verify customer id is generated
 
+@2DMap @reg @smoke
   Scenario: Add Customer validation by using 2 dim map
     When user enters all the fields by two dim map concept
       | fname    | lname | mail            | addr    | phno      |

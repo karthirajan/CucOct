@@ -9,36 +9,38 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import com.telecom.resources.Commonactions;
+
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.cucumber.datatable.DataTable;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class AddCustomerSteps {
+public class AddCustomerSteps extends Commonactions{
 	
-	static WebDriver driver;
+	Commonactions ca = new Commonactions();
 	
 	@Given("user launches demo telecom application")
 	public void user_launches_demo_telecom_application() {
 	   
-		WebDriverManager.chromedriver().setup();
-	    driver = new ChromeDriver();
-		driver.get("http://www.demo.guru99.com/telecom/index.html");
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		ca.launch("http://www.demo.guru99.com/telecom/");
 		
 	}
 
 	@Given("user click on add customer button")
 	public void user_click_on_add_customer_button() {
 		
-		driver.findElement(By.xpath("(//a[text()='Add Customer'])[1]")).click();
+		ca.button(driver.findElement(By.xpath("(//a[text()='Add Customer'])[1]")));
+		
+		
 	    
 	}
 
 	@When("user enters all the fields")
 	public void user_enters_all_the_fields() {
+		
+		
 		
 		driver.findElement(By.xpath("//label[@for='done']")).click();
 		driver.findElement(By.id("fname")).sendKeys("karthi");
