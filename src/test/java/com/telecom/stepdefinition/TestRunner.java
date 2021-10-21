@@ -11,7 +11,7 @@ import cucumber.api.junit.Cucumber;
                    plugin = "html:target//Reports",
                monochrome = true,
                    dryRun = false,
-                     tags = {"@2DMap,@reg"})
+                     tags = {"@Data"})
 
 public class TestRunner {
 

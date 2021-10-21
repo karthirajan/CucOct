@@ -1,10 +1,15 @@
 package com.telecom.resources;
 
+import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -15,9 +20,22 @@ public class Commonactions {
 	public void launch(String url) {
 
 		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();
+		
+		DesiredCapabilities chromeCapabilities = DesiredCapabilities.chrome();
+		chromeCapabilities.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.DISMISS);
+		
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("start-maximized");
+		options.setExperimentalOption("excludeSwitches",
+			     Arrays.asList("disable-popup-blocking"));
+		options.addArguments("headless");
+		//options.addArguments("window-size=1200x600");
+		
+		
+		chromeCapabilities.setCapability(ChromeOptions.CAPABILITY, options);
+		
+		driver = new ChromeDriver(chromeCapabilities);
 		driver.get(url);
-		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 	}

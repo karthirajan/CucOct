@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import com.telecom.objectrepository.AddCustomerPage;
 import com.telecom.resources.Commonactions;
 
 import cucumber.api.java.en.Given;
@@ -20,18 +21,19 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class AddCustomerSteps extends Commonactions{
 	
 	Commonactions ca = new Commonactions();
+	AddCustomerPage ap = new AddCustomerPage();
 	
 	@Given("user launches demo telecom application")
 	public void user_launches_demo_telecom_application() {
 	   
-		ca.launch("http://www.demo.guru99.com/telecom/");
+		
 		
 	}
 
 	@Given("user click on add customer button")
 	public void user_click_on_add_customer_button() {
 		
-		ca.button(driver.findElement(By.xpath("(//a[text()='Add Customer'])[1]")));
+		ca.button(ap.getCustomerButton());
 		
 		
 	    
@@ -42,19 +44,20 @@ public class AddCustomerSteps extends Commonactions{
 		
 		
 		
-		driver.findElement(By.xpath("//label[@for='done']")).click();
-		driver.findElement(By.id("fname")).sendKeys("karthi");
-		driver.findElement(By.id("lname")).sendKeys("rajan");
-		driver.findElement(By.id("email")).sendKeys("karthirajan@gmail.com");
-		driver.findElement(By.name("addr")).sendKeys("chennai");
-		driver.findElement(By.id("telephoneno")).sendKeys("7657646546");
+		ca.button(ap.getDoneButton());
+		ca.insertText(ap.getFirstName(), "karthi");
+		ca.insertText(ap.getLastName(), "rajan");
+		ca.insertText(ap.getMail(), "rajan@gmail.com");
+		ca.insertText(ap.getAddress(), "tanjore");
+		ca.insertText(ap.getPhno(), "75764654353");
+		
 	    
 	}
 
 	@When("user click on submit button")
 	public void user_click_on_submit_button() {
 		
-		driver.findElement(By.xpath("//input[@value='Submit']")).click();
+		ca.button(ap.getSubmitButton());
 	    
 		
 	}
@@ -63,7 +66,7 @@ public class AddCustomerSteps extends Commonactions{
 	public void user_verify_customer_id_is_generated() {
 		
 		Assert.assertTrue(driver.findElement(By.xpath("(//td[@align='center'])[2]")).isDisplayed());
-		driver.quit();
+		
 	    
 	}
 	
@@ -72,12 +75,12 @@ public class AddCustomerSteps extends Commonactions{
 	    
 		
 		List<String> datas = dataTable.asList(String.class);
-		driver.findElement(By.xpath("//label[@for='done']")).click();
-		driver.findElement(By.id("fname")).sendKeys(datas.get(0));
-		driver.findElement(By.id("lname")).sendKeys(datas.get(1));
-		driver.findElement(By.id("email")).sendKeys(datas.get(2));
-		driver.findElement(By.name("addr")).sendKeys(datas.get(3));
-		driver.findElement(By.id("telephoneno")).sendKeys(datas.get(4));
+		ca.button(ap.getDoneButton());
+		ca.insertText(ap.getFirstName(), datas.get(0));
+		ca.insertText(ap.getLastName(), datas.get(1));
+		ca.insertText(ap.getMail(), datas.get(2));
+		ca.insertText(ap.getAddress(), datas.get(3));
+		ca.insertText(ap.getPhno(), datas.get(4));
 		
 	}
 	

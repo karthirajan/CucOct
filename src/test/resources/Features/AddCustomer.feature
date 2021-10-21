@@ -6,7 +6,7 @@ Background:
     Given user launches demo telecom application
     And user click on add customer button
 
-
+@Data
   Scenario: Add Customer
     When user enters all the fields
     And user click on submit button
