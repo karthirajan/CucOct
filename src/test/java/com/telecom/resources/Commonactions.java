@@ -21,8 +21,11 @@ public class Commonactions {
 
 		WebDriverManager.chromedriver().setup();
 		
-		DesiredCapabilities chromeCapabilities = DesiredCapabilities.chrome();
-		chromeCapabilities.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.DISMISS);
+		/*
+		 * DesiredCapabilities chromeCapabilities = DesiredCapabilities.
+		 * chromeCapabilities.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR,
+		 * UnexpectedAlertBehaviour.DISMISS);
+		 */
 		
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("start-maximized");
@@ -32,9 +35,9 @@ public class Commonactions {
 		//options.addArguments("window-size=1200x600");
 		
 		
-		chromeCapabilities.setCapability(ChromeOptions.CAPABILITY, options);
+		//chromeCapabilities.setCapability(ChromeOptions.CAPABILITY, options);
 		
-		driver = new ChromeDriver(chromeCapabilities);
+		driver = new ChromeDriver(options);
 		driver.get(url);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
