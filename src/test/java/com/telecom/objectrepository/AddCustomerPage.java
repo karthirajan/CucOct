@@ -15,7 +15,7 @@ public class AddCustomerPage extends Commonactions{
 		
 	}
 	
-	@FindBy(xpath = "(//a[text()='Add Customer'])[1]")
+	@FindBy(xpath = "(//a[text()='Add Customer'])[2]")
 	private WebElement customerButton;
 	
 	@FindBy(xpath = "//label[@for='done']")
@@ -57,14 +57,6 @@ public class AddCustomerPage extends Commonactions{
 
 	public WebElement getDoneButton() {
 		return doneButton;
-	}
-
-	public WebElement getFirstName() {
-		return firstName;
-	}
-
-	public WebElement getLastName() {
-		return lastName;
 	}
 
 	public WebElement getMail() {
