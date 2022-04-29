@@ -1,5 +1,10 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
+Built-By: pc
+Build-Jdk: 17.0.2
+=======
 Built-By: AVANTHI
 Build-Jdk: 1.8.0_321
+>>>>>>> a82a9f358b8897ff5e189c32152b2909928bee2d
 Created-By: Maven Integration for Eclipse
 
