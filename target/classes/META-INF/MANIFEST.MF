@@ -1,5 +1,10 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: moort
 Build-Jdk: 1.8.0_321
+=======
+Built-By: jeyapandi
+Build-Jdk: 17.0.2
+>>>>>>> 2527c273258ea831db16d6568fe697495421eb8c
 Created-By: Maven Integration for Eclipse
 

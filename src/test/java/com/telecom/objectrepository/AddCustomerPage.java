@@ -71,9 +71,7 @@ public class AddCustomerPage extends Commonactions{
 		return phno;
 	}
 
-	public WebElement getSubmitButton() {
-		return submitButton;
-	}
+	
 	
 	
 

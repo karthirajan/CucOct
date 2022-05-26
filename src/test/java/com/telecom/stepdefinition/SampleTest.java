@@ -1,10 +1,9 @@
 package com.telecom.stepdefinition;
 
-public class TestRunner {
-
-	
+public class SampleTest {
 	public static void main(String[] args) {
-		System.out.println("Task completed");
+		System.out.println("task completed");
+		
 	}
-	
+
 }
